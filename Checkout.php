@@ -31,7 +31,7 @@
 
         onApprove: function(data, actions){
             actions.order.capture().then(function(detalles){
-                console.log(detalles);
+            window.location.href="Completado.html"
             });
         }, 
         
