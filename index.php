@@ -7,7 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
     crossorigin="anonymous">
-    <title>Document</title>
+    <link href="CSS/styles.css" rel="stylesheet">
+    <title>Ares Urban Wear</title>
 </head>
 <body>
 
@@ -57,6 +58,71 @@
   </button>
 </div>
     
+<main>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+           <img src="IMG/PROD/Gorra pescadora.jpeg" alt="" width="350" height="300">
+
+            <div class="card-body">
+              <h5 class="card-text">Gorra pescadora diseño canabis</h5>
+              <p class="card-text">$ 199.00</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  
+                  <a href="" class="btn btn-primary">Detalles</a>
+                  
+                </div>
+                <a href="" class="btn btn-success">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+           <img src="IMG/PROD/Gorra pescadora 2.jpg" alt="" width="350" height="300">
+
+            <div class="card-body">
+              <h5 class="card-text">Gorra pescadora negra</h5>
+              <p class="card-text">$ 199.00</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  
+                  <a href="" class="btn btn-primary">Detalles</a>
+                  
+                </div>
+                <a href="" class="btn btn-success">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+           <img src="IMG/PROD/sudadera azul.jpg" alt="" width="350" height="300">
+
+            <div class="card-body">
+              <h5 class="card-text">Sudadera azul streetwear</h5>
+              <p class="card-text">$ 399.00</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  
+                  <a href="" class="btn btn-primary">Detalles</a>
+                  
+                </div>
+                <a href="" class="btn btn-success">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+       
+    
+
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
