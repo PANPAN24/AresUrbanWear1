@@ -1,3 +1,15 @@
+<?php
+require 'CONF/config.php';
+require 'CONF/database.php';
+$db = new Database();
+$con = $db->conectar();
+$sql = $con->prepare("SELECT id_producto, nombre, precio FROM productos WHERE activo = 1");
+$sql -> execute();
+$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,17 +76,30 @@
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+        <?php foreach($resultado as $row) {?>
+
         <div class="col">
           <div class="card shadow-sm">
-           <img src="IMG/PROD/Gorra pescadora.jpeg" alt="" width="350" height="300">
+
+            <?php 
+            $nom = $row['nombre'];
+            $imagen = "IMG/PROD/" . $nom . "/principal.jpg" ;
+            if(!file_exists($imagen)){
+              $imagen = "IMG/sinfoto.jpg";
+            }
+            ?>
+
+           <img src="<?php echo $imagen;?>" alt="" width="350" height="300">
 
             <div class="card-body">
-              <h5 class="card-text">Gorra pescadora diseño canabis</h5>
-              <p class="card-text">$ 199.00</p>
+              <h5 class="card-text"><?php echo $row ['nombre'];?></h5>
+              <p class="card-text">$ <?php echo number_format ($row ['precio'], 2,'.',',');?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   
-                  <a href="" class="btn btn-primary">Detalles</a>
+                  <a href="detalleS.php?id=<?php echo $row ['id_producto'];?>&token=<?php echo
+                  hash_hmac('sha1', $row['id_producto'], KEY_TOKEN);?>" class="btn btn-primary">Detalles</a>
                   
                 </div>
                 <a href="" class="btn btn-success">Agregar al carrito</a>
@@ -82,7 +107,11 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <?php }?>
+        </div>
+        </div>
+        
+        <!-- <div class="col">
           <div class="card shadow-sm">
            <img src="IMG/PROD/Gorra pescadora 2.jpg" alt="" width="350" height="300">
 
@@ -118,7 +147,7 @@
             </div>
           </div>
         </div>
-        
+         -->
        
     
 
