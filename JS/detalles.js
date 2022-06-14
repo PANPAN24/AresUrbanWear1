@@ -29,7 +29,7 @@ const imprimirCarta = (datos) => {
     </div>
     <div class = "col-md-6 order-md-2"> 
           <h1>${datos.descripcionArticulo}</h1>
-          <h2>${datos.precioArticulo}</h2>
+          <h2>$${datos.precioArticulo}</h2>
           <p> ${datos.detallesArticulo}</p>
           <br>
           <h5 class="lead"></h5>
