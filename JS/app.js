@@ -21,7 +21,7 @@ let imprimirCarta = (array) => {
      <div class="card shadow-sm">
 
          <img src="IMG/PROD/Gorra pescadora diseño canabis/principal.jpeg" 
-         width="350" height="300"></img>
+         width="100%" height="auto"></img>
          <div class="card-body">
           <h5 class="card-text">${articulo.descripcionArticulo}</h5>
           <p class="card-text">$${articulo.precioArticulo}</p>
