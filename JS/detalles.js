@@ -1,4 +1,3 @@
-
 let details = document.querySelector("#detalles");
 
 
@@ -10,22 +9,21 @@ let searchParams = new URLSearchParams(url3.search);
 
 let id = searchParams.get('id');
 
-const url = 'https://aresurbanwearback.000webhostapp.com/api/articulo/'+id;
+const url = 'https://aresurbanwearback.000webhostapp.com/api/articulo/' + id;
 console.log(url);
 
-
-async function obtenerDatos(){
-    await fetch(url)
-    //.then(datos => datos.json())
-    .then(console.log(datos));
-    imprimirCarta(datos);
-
+let result = "";
+async function obtenerDatos() {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => data[0])
+        .then(res => console.log(res));
 }
 
 
 let imprimirCarta = (datos) => {
-    
-        details.innerHTML += `
+
+    details.innerHTML += `
         <div class = "col-md-6 order-md-1"> 
         <img src="IMG/PROD/1/principal.jpg" alt="" width="350" height="350">
     </div>
@@ -42,9 +40,9 @@ let imprimirCarta = (datos) => {
               <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
           </div>      
     </div>
-        `    
-    
-    
+        `
+
+
 }
 
 obtenerDatos();
