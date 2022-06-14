@@ -1,6 +1,3 @@
-let details = document.querySelector("#detalles");
-
-
 let url2 = window.location.href;
 
 let url3 = new URL(url2);
@@ -17,13 +14,16 @@ async function obtenerDatos() {
     fetch(url)
         .then(response => response.json())
         .then(data => data[0])
-        .then(res => console.log(res));
+        .then(res => imprimirCarta(res));
 }
 
 
-let imprimirCarta = (datos) => {
+const imprimirCarta = (datos) => {
 
-    details.innerHTML += `
+    console.log(datos);
+    let details = document.querySelector("#detalles");
+
+    details.innerHTML = `
         <div class = "col-md-6 order-md-1"> 
         <img src="IMG/PROD/1/principal.jpg" alt="" width="350" height="350">
     </div>
