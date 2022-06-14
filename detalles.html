@@ -1,54 +1,3 @@
-<?php
-require 'CONF/config.php';
-require 'CONF/database.php';
-$db = new Database();
-$con = $db->conectar();
-
-$id= isset($_GET['id'])?$_GET['id'] : '';
-$token = isset($_GET['token'])?$_GET['token'] : '';
-
-if($id == '' || $token == ''){
-  echo 'No se ha podido procesar esa peticion';
-  exit;
-}else{
-  $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
-
-      if($token == $token_tmp){
-
-              
-        $sql = $con->prepare("SELECT count(id_producto) FROM productos WHERE id_producto = ? AND activo = 1");
-        $sql -> execute([$id]);
-
-        if($sql->fetchColumn() >0){
-
-          $sql = $con->prepare("SELECT nombre, descripcion, precio FROM productos WHERE id_producto = ?
-           AND activo = 1");
-          $sql -> execute([$id]);
-          $row = $sql->fetch(PDO::FETCH_ASSOC);
-          $nombre = $row['nombre'];
-          $descripcion = $row['descripcion'];
-          $precio= $row['precio'];
-  
-        }else{
-  echo 'No se ha podido procesar esa peticion';
-  exit;
-}
-
-       
-
-
-}else{
-  echo 'No se ha podido procesar esa peticion';
-  exit;
-}
-
-}
-
-;
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,6 +9,7 @@ if($id == '' || $token == ''){
     crossorigin="anonymous">
     <link href="CSS/styles.css" rel="stylesheet">
     <title>Ares Urban Wear</title>
+    <script src="./JS/detalles.js"></script>
 </head>
 <body>
 
@@ -96,22 +46,22 @@ if($id == '' || $token == ''){
 
 <div class="album py-5 bg-light">
     <div class="container">
-        <div class="row">
-          <div class = "col-md-6 order-md-1"> 
-              <img src="IMG/PROD/1/principal.jpg" alt="" width="350" height="300">
+        <div class="row" id="detalles">
+          <!-- <div class = "col-md-6 order-md-1"> 
+              <img src="IMG/PROD/1/principal.jpg" alt="" width="350" height="350">
           </div>
           <div class = "col-md-6 order-md-2"> 
-                <h1><?php echo $nombre?></h1>
-                <h2><?php echo '$' . $precio?></h2>
+                <h1></h1>
+                <h2></h2>
                 <br>
-                <h5 class="lead"><?php echo $descripcion?></h5>
+                <h5 class="lead"></h5>
                 <br>
                 
                 <div class="d-grid gap-3 col-10 mx-auto">
-                    <button class="btn btn-primary" type="button">Comprar ahora</button>
+                    <button class="btn btn-primary" type="button" href="pago.php">Comprar ahora</button>
                     <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
                 </div>
-              
+               -->
                 
           </div>
         </div>

@@ -24,11 +24,11 @@ let imprimirCarta = (array) => {
          width="350" height="300"></img>
          <div class="card-body">
           <h5 class="card-text">${articulo.descripcionArticulo}</h5>
-          <p class="card-text">${articulo.precioArticulo}</p>
+          <p class="card-text">$${articulo.precioArticulo}</p>
           <div class="d-flex justify-content-between align-items-center">
              <div class="btn-group">
          
-                 <a href="" class="btn btn-primary">Detalles</a>
+                 <a href="detalles.html?id=${articulo.idArticulo}" class="btn btn-primary">Detalles</a>
          
                </div>
                 <a href="" class="btn btn-success">Agregar al carrito</a>
